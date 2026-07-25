@@ -161,8 +161,18 @@ document.addEventListener('click', (e) => {
 
   if (localVideoUrl) {
     e.preventDefault();
-    const videoHtml = `<video src="${localVideoUrl}" controls autoplay playsinline></video>`;
+    const videoHtml = `<video src="${localVideoUrl}" controls playsinline></video>`;
     openMediaModal(videoHtml);
+    const videoEl = mediaModalPlayer.querySelector('video');
+    if (videoEl) {
+      // Explicitly call play() in the click event stack for iOS
+      const playPromise = videoEl.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.warn('iOS Autoplay prevented. User must manually click play.', error);
+        });
+      }
+    }
   } else if (youtubeId) {
     e.preventDefault();
     const iframeHtml = `<iframe src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
