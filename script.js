@@ -121,3 +121,52 @@ const workCards = document.querySelectorAll('.work-card');
 workCards.forEach((card, i) => {
   card.style.transitionDelay = `${i * 0.1}s`;
 });
+
+// ========== HYBRID MEDIA MODAL ==========
+const mediaModal = document.getElementById('mediaModal');
+const mediaModalOverlay = document.getElementById('mediaModalOverlay');
+const mediaModalClose = document.getElementById('mediaModalClose');
+const mediaModalPlayer = document.getElementById('mediaModalPlayer');
+
+function openMediaModal(contentHtml) {
+  if (!mediaModal) return;
+  mediaModalPlayer.innerHTML = contentHtml;
+  mediaModal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeMediaModal() {
+  if (!mediaModal) return;
+  mediaModal.classList.remove('active');
+  document.body.style.overflow = '';
+  
+  // Wait for fade out animation before removing element to stop audio
+  setTimeout(() => {
+    mediaModalPlayer.innerHTML = '';
+  }, 400);
+}
+
+if (mediaModalClose && mediaModalOverlay) {
+  mediaModalClose.addEventListener('click', closeMediaModal);
+  mediaModalOverlay.addEventListener('click', closeMediaModal);
+}
+
+// Listen for clicks on any poster with a video attribute
+document.addEventListener('click', (e) => {
+  const poster = e.target.closest('.work-slide__poster');
+  if (!poster) return;
+
+  const localVideoUrl = poster.getAttribute('data-local-video');
+  const youtubeId = poster.getAttribute('data-youtube-id');
+
+  if (localVideoUrl) {
+    e.preventDefault();
+    const videoHtml = `<video src="${localVideoUrl}" controls autoplay playsinline></video>`;
+    openMediaModal(videoHtml);
+  } else if (youtubeId) {
+    e.preventDefault();
+    const iframeHtml = `<iframe src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    openMediaModal(iframeHtml);
+  }
+  // If it's a standard link (like the current music videos), let it behave normally.
+});

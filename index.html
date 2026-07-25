@@ -107,8 +107,10 @@
 
         <!-- Grey -->
         <div class="work-slide">
-          <div class="work-slide__poster">
-            <img src="assets/images/posters/grey.jpg" alt="Grey — Short Film" loading="lazy">
+        <!-- Grey -->
+        <div class="work-slide">
+          <div class="work-slide__poster" data-local-video="assets/videos/grey.mp4">
+            <img src="assets/images/posters/grey.png" alt="Grey — Short Film" loading="lazy">
           </div>
           <div class="work-slide__info">
             <h3 class="work-slide__title">Grey</h3>
@@ -119,8 +121,8 @@
 
         <!-- The Pink Umbrella -->
         <div class="work-slide">
-          <div class="work-slide__poster">
-            <img src="assets/images/posters/the-pink-umbrella.jpg" alt="The Pink Umbrella" loading="lazy">
+          <div class="work-slide__poster" data-local-video="assets/videos/the-pink-umbrella.mp4">
+            <img src="assets/images/posters/the pink umberlal.png" alt="The Pink Umbrella" loading="lazy">
           </div>
           <div class="work-slide__info">
             <h3 class="work-slide__title">The Pink Umbrella</h3>
@@ -131,8 +133,8 @@
 
         <!-- Waqt -->
         <div class="work-slide">
-          <div class="work-slide__poster">
-            <img src="assets/images/posters/waqt.jpg" alt="Waqt" loading="lazy">
+          <div class="work-slide__poster" data-local-video="assets/videos/waqt.mp4">
+            <img src="assets/images/posters/waqt.png" alt="Waqt" loading="lazy">
           </div>
           <div class="work-slide__info">
             <h3 class="work-slide__title">Waqt</h3>
@@ -144,7 +146,7 @@
         <!-- All The Way Back -->
         <div class="work-slide">
           <div class="work-slide__poster">
-            <img src="assets/images/posters/all-the-way-back.jpg" alt="All The Way Back" loading="lazy">
+            <img src="assets/images/posters/amma all the way back.png" alt="All The Way Back" loading="lazy">
           </div>
           <div class="work-slide__info">
             <h3 class="work-slide__title">All The Way Back</h3>
@@ -153,13 +155,13 @@
           </div>
         </div>
 
-        <!-- The Maniac -->
+        <!-- OUTRO -->
         <div class="work-slide">
           <div class="work-slide__poster">
-            <img src="assets/images/posters/the-maniac.jpg" alt="The Maniac" loading="lazy">
+            <img src="assets/images/posters/OUTRO.png" alt="OUTRO" loading="lazy">
           </div>
           <div class="work-slide__info">
-            <h3 class="work-slide__title">The Maniac</h3>
+            <h3 class="work-slide__title">OUTRO</h3>
             <p class="work-slide__year">2024</p>
             <p class="work-slide__role">Role: Director</p>
           </div>
@@ -182,8 +184,8 @@
 
         <!-- Cadbury & Flipkart -->
         <div class="work-slide work-slide--landscape">
-          <div class="work-slide__poster work-slide__poster--landscape">
-            <img src="assets/images/posters/ad-cadbury-flipkart.jpg" alt="Cadbury & Flipkart" loading="lazy">
+          <div class="work-slide__poster work-slide__poster--landscape" data-local-video="assets/videos/cadbury.mp4">
+            <img src="assets/images/posters/CADBURY & Flipkart.JPG" alt="Cadbury & Flipkart" loading="lazy">
           </div>
           <div class="work-slide__info">
             <h3 class="work-slide__title">Cadbury & Flipkart</h3>
@@ -194,8 +196,8 @@
 
         <!-- Shakti Life Insurance -->
         <div class="work-slide work-slide--landscape">
-          <div class="work-slide__poster work-slide__poster--landscape">
-            <img src="assets/images/posters/ad-shakti.png" alt="Shakti Life Insurance" loading="lazy">
+          <div class="work-slide__poster work-slide__poster--landscape" data-local-video="assets/videos/shakti.mp4">
+            <img src="assets/images/posters/Shakti Life Insurance.png" alt="Shakti Life Insurance" loading="lazy">
           </div>
           <div class="work-slide__info">
             <h3 class="work-slide__title">Shakti Life Insurance</h3>
@@ -207,7 +209,7 @@
         <!-- London Beauty Academy -->
         <div class="work-slide work-slide--landscape">
           <div class="work-slide__poster work-slide__poster--landscape">
-            <img src="assets/images/posters/ad-london-beauty.jpg" alt="London Beauty Academy" loading="lazy">
+            <img src="assets/images/posters/London beauty academy.jpg" alt="London Beauty Academy" loading="lazy">
           </div>
           <div class="work-slide__info">
             <h3 class="work-slide__title">London Beauty Academy</h3>
@@ -299,6 +301,17 @@
   <footer class="footer">
     <p>&copy; 2024 Bharat Mavii. All rights reserved.</p>
   </footer>
+
+  <!-- ========== HYBRID MEDIA MODAL ========== -->
+  <div class="media-modal" id="mediaModal">
+    <div class="media-modal__overlay" id="mediaModalOverlay"></div>
+    <div class="media-modal__content">
+      <button class="media-modal__close" id="mediaModalClose" aria-label="Close video">&times;</button>
+      <div class="media-modal__player" id="mediaModalPlayer">
+        <!-- Video or Iframe will be injected here dynamically -->
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
